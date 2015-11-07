@@ -3,6 +3,7 @@ package mp3metap
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func Metaparse(filename string) {
@@ -22,9 +23,9 @@ func Metaparse(filename string) {
 	}
 	str := string(bs)
 	str=str[info.Size()-128:]
-	fmt.Println("Title :",str[3:33])
-	fmt.Println("Artist :",str[33:63])
-	fmt.Println("Album :",str[63:93])
-	fmt.Println("Year :",str[93:97])
+	fmt.Println("Title :",strings.Trim(str[3:33],string(0)))
+	fmt.Println("Artist :",strings.Trim(str[33:63],string(0)))
+	fmt.Println("Album :",strings.Trim(str[63:93],string(0)))
+	fmt.Println("Year :",strings.Trim(str[93:97],string(0)))
 	return
 }
